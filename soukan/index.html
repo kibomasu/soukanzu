@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>相関図メーカー</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #settings, #relation-settings {
+      display: none;
+    }
+    #settings, #relation-settings, #diagram {
+      margin: 20px;
+    }
+    .person-box {
+      border: 1px solid #ccc;
+      display: inline-block;
+      padding: 10px;
+      margin: 10px;
+      cursor: pointer;
+      text-align: center;
+    }
+    #diagram {
+      border: 1px solid #ddd;
+      height: 600px;
+      position: relative;
+      overflow: hidden;
+    }
+    .person-icon {
+      position: absolute;
+      text-align: center;
+    }
+    .person-icon img {
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+    }
+    .arrow-label {
+      position: absolute;
+      white-space: nowrap;
+      font-size: 12px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <button id="settings-button">設定</button>
+
+  <div id="settings">
+    <h2>人物設定</h2>
+    <form id="person-form">
+      <label for="name">名前:</label>
+      <input type="text" id="name" required>
+      <br><br>
+      <label for="image">画像:</label>
+      <input type="file" id="image" accept="image/*" required>
+      <div>
+        <canvas id="preview" style="display:none; max-width: 100%;"></canvas>
+        <button type="button" id="crop-button">トリミング</button>
+      </div>
+      <br><br>
+      <button type="submit">完了</button>
+    </form>
+  </div>
+
+  <h2>人物一覧</h2>
+  <div id="person-list"></div>
+
+  <div id="relation-settings">
+    <h2>関係設定</h2>
+    <label for="relation-a">A→Bの関係:</label>
+    <input type="text" id="relation-a" required>
+    <br><br>
+    <label for="relation-b">B→Aの関係:</label>
+    <input type="text" id="relation-b" required>
+    <br><br>
+    <button id="relation-save-button">保存</button>
+  </div>
+
+  <h2>相関図</h2>
+  <div id="diagram"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.15.6/js/jsplumb.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

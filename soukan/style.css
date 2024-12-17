@@ -1,0 +1,33 @@
+.arrow-text-top {
+    position: absolute;
+    color: #333;
+    font-size: 14px;
+    text-align: center;
+    transform: translateY(-15px); /* 上方向へずらす */
+  }
+  
+  .arrow-text-bottom {
+    position: absolute;
+    color: #333;
+    font-size: 14px;
+    text-align: center;
+    transform: translateY(15px); /* 下方向へずらす */
+  }
+  
+  .person-icon {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    display: inline-block;
+    position: absolute;
+  }
+  
+  .person-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
